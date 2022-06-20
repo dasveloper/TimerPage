@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 import Layout from '@/components/layout'
+import Meta from '@/components/meta'
 import { getHomepageLinks, toMs } from '@/utils/timer'
 
 export default function Timer({ homepageLinks }) {
@@ -28,6 +29,10 @@ export default function Timer({ homepageLinks }) {
   }
   return (
     <Layout>
+      <Meta
+        title="Timer Page | Online Countdown Timer Generator"
+        description="Timer Page is an easy to use online countdown timer generator that lets you create a countdown timer for an amount of days, hours, minutes, and seconds."
+      />
       <main className="mt-12">
         <section>
           <div className="max-w-7xl text-center">

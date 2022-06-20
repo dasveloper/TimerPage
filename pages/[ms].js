@@ -4,6 +4,7 @@ import { useEffect, useMemo } from 'react'
 import { useCountdownTimer } from 'use-countdown-timer'
 
 import Layout from '@/components/layout'
+import Meta from '@/components/meta'
 import {
   getHighestUnit,
   getReadableString,
@@ -28,6 +29,13 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
 
   return (
     <Layout>
+      <Meta
+        title={`${readableString} | Timer Page`}
+        description={`Online countdown ${readableString}. Easily count down from ${readableString.replace(
+          ' timer',
+          's',
+        )}, or select from other related ${relatedString} timers.`}
+      />
       <main className="mt-12">
         <section>
           <div className="pb-4 border-b">
