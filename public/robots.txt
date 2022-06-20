@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://timerpage.com
+
+# Sitemaps
+Sitemap: https://timerpage.com/sitemap.xml

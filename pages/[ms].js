@@ -12,6 +12,7 @@ import {
   getRelatedString,
   getTimerString,
   parseMs,
+  toMs,
 } from '@/utils/timer'
 
 export default function Timer({ ms, relatedLinks, relatedString }) {
@@ -93,7 +94,31 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
 }
 
 export const getStaticPaths = async () => {
-  const paths = [].map(({ _id }) => ({ params: { timer: _id.toString() } }))
+  const paths = []
+  // 1 - 59 seconds
+  for (let i = 1; i < 60; i += 1) {
+    paths.push({ params: { ms: toMs({ seconds: i }).toString() } })
+  }
+
+  // 1 - 59 minutes with 5 seconds intervals
+  for (let i = 1; i < 60; i += 1) {
+    for (let j = 0; j < 60; j += 5) {
+      paths.push({ params: { ms: toMs({ minutes: i, seconds: j }).toString() } })
+    }
+  }
+
+  // 1 - 23 hours with 5 minute intervals
+  for (let i = 1; i < 24; i += 1) {
+    for (let j = 0; j < 60; j += 5) {
+      paths.push({ params: { ms: toMs({ hours: i, minutes: j }).toString() } })
+    }
+  }
+
+  // 1 - 7 hours days
+  for (let i = 1; i <= 7; i += 1) {
+    paths.push({ params: { ms: toMs({ days: i }).toString() } })
+  }
+
   return {
     paths,
     fallback: 'blocking',

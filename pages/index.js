@@ -55,7 +55,7 @@ export default function Timer({ homepageLinks }) {
                   </label>
                   <input
                     type="number"
-                    min="1"
+                    min="0"
                     step="1"
                     id="days"
                     name="days"
@@ -70,7 +70,7 @@ export default function Timer({ homepageLinks }) {
                   </label>
                   <input
                     type="number"
-                    min="1"
+                    min="0"
                     step="1"
                     id="hours"
                     name="hours"
@@ -85,7 +85,7 @@ export default function Timer({ homepageLinks }) {
                   </label>
                   <input
                     type="number"
-                    min="1"
+                    min="0"
                     step="1"
                     id="minutes"
                     name="minutes"
@@ -100,7 +100,7 @@ export default function Timer({ homepageLinks }) {
                   </label>
                   <input
                     type="number"
-                    min="1"
+                    min="0"
                     step="1"
                     id="seconds"
                     name="seconds"
