@@ -12,7 +12,7 @@ export default function Header() {
       <Link href="/">
         <a className="flex justify-center items-center gap-3">
           <Logo width={34} />
-          <span className="hidden sm:block font-bold text-xl">Timer Page</span>
+          <span className="sr-only sm:not-sr-only font-bold text-xl">Timer Page</span>
         </a>
       </Link>
 
@@ -21,6 +21,7 @@ export default function Header() {
         className="inline-flex items-center p-1.5 border text-xs font-medium rounded  focus:outline-none focus:ring-2 focus:ring-offset-2 "
         onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       >
+        <span className="sr-only">Toggle dark mode</span>
         {resolvedTheme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
       </button>
     </header>
