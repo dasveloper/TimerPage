@@ -31,12 +31,12 @@ export default function Timer({ homepageLinks }) {
       <main className="mt-12">
         <section>
           <div className="max-w-7xl text-center">
-            <h1 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-5xl">
+            <h1 className="text-3xl tracking-tight font-extrabold sm:text-5xl">
               Create a countdown timer
               <br />
-              <span className="text-indigo-600">for any duration</span>
+              for any duration
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:max-w-3xl">
+            <p className="mt-3 max-w-md mx-auto text-base sm:text-lg md:mt-5 md:max-w-3xl">
               Enter your timer duration in days, hours, minutes, and seconds and Timer Page will generate a sharable
               countdown timer for you, or browse our premade online countdown timers.
             </p>
@@ -45,7 +45,7 @@ export default function Timer({ homepageLinks }) {
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col xs:flex-row xs:items-center xs:justify-center gap-4">
                 <div>
-                  <label htmlFor="days" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <label htmlFor="days" className="block mb-2 text-sm font-medium ">
                     Days
                   </label>
                   <input
@@ -60,7 +60,7 @@ export default function Timer({ homepageLinks }) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="hours" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <label htmlFor="hours" className="block mb-2 text-sm font-medium ">
                     Hours
                   </label>
                   <input
@@ -75,7 +75,7 @@ export default function Timer({ homepageLinks }) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="minutes" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <label htmlFor="minutes" className="block mb-2 text-sm font-medium ">
                     Minutes
                   </label>
                   <input
@@ -90,7 +90,7 @@ export default function Timer({ homepageLinks }) {
                   />
                 </div>
                 <div>
-                  <label htmlFor="seconds" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <label htmlFor="seconds" className="block mb-2 text-sm font-medium">
                     Seconds
                   </label>
                   <input
