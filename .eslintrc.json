@@ -1,0 +1,29 @@
+{
+  "extends": ["next/core-web-vitals", "airbnb", "prettier"],
+  "plugins": ["simple-import-sort"],
+  "settings": {
+    "import/resolver": {
+      "alias": [
+          ["@/components", "./components"],
+          ["@/utils", "./utils"],
+          ["@/styles", "./styles"]
+      ]
+    }
+  }, 
+  "rules": {
+    "react/react-in-jsx-scope": "off", // Needed to allow .js pages/components
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], // Needed to allow .js pages/components
+    "jsx-a11y/anchor-is-valid": "off", // Needed too allow Next Links
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}], // Needed too allow prop-types reference
+    "react/jsx-props-no-spreading": "off", // Needed too allow App "pageProps" to be spread
+    "react/prop-types": "off", // Leaving proptypes off for example purposes 
+    "no-underscore-dangle": "off", // User to allow Mongoose _id property in code
+    "max-len": "off", // Max line length often conflicts with arrow functions see https://github.com/airbnb/javascript/issues/1532
+    "simple-import-sort/imports": "error", // Force eslint to sort imports
+    "simple-import-sort/exports": "error", // Force eslint to sort exports
+    "import/no-mutable-exports": "off", // Allow exporting Prisma initialization
+    "jsx-a11y/label-has-associated-control": "off", // Allow React htmlFor
+    "import/prefer-default-export": "off", // Allow named export for functions
+    "no-restricted-syntax": "off" // Allow for of/in loops
+  }
+}
