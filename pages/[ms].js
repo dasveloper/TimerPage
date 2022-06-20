@@ -5,6 +5,7 @@ import { useCountdownTimer } from 'use-countdown-timer'
 
 import Layout from '@/components/layout'
 import Meta from '@/components/meta'
+import Share from '@/components/share'
 import {
   getHighestUnit,
   getReadableString,
@@ -39,8 +40,9 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
       />
       <main className="mt-12">
         <section>
-          <div className="pb-4 border-b">
-            <h1 className="text-lg leading-6 font-bold md:text-3xl">{readableString}</h1>
+          <div className="pb-4 border-b flex flex-col xs:flex-row items-center justify-between gap-4">
+            <h1 className="text-2xl leading-6 font-bold md:text-4xl">{readableString}</h1>
+            <Share url={`https://timerpage.com/${ms}`} title={readableString} />
           </div>
           <div className="py-28">
             <h2 className="text-center font-mono leading-none font-medium text-4xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
