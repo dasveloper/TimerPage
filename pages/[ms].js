@@ -1,6 +1,7 @@
 import { PauseIcon, PlayIcon, RefreshIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import { useEffect, useMemo } from 'react'
+import Confetti from 'react-confetti'
 import { useCountdownTimer } from 'use-countdown-timer'
 
 import Layout from '@/components/layout'
@@ -15,8 +16,11 @@ import {
   parseMs,
   toMs,
 } from '@/utils/timer'
+import useWindowSize from '@/utils/useWindowSize'
 
 export default function Timer({ ms, relatedLinks, relatedString }) {
+  const size = useWindowSize()
+
   const { countdown, start, reset, pause, isRunning } = useCountdownTimer({
     timer: ms,
     resetOnExpire: false,
@@ -38,6 +42,7 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
           's',
         )}, or select from other related ${relatedString} timers.`}
       />
+      {countdown === 0 && <Confetti width={size.width} height={size.height} />}
       <main className="mt-12">
         <section>
           <div className="pb-4 border-b flex flex-col xs:flex-row items-center justify-between gap-4">
@@ -45,6 +50,8 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
             <Share url={`https://timerpage.com/${ms}`} title={readableString} />
           </div>
           <div className="py-28">
+            {' '}
+            {countdown === 0 && <p className="text-center text-3xl mb-6 font-bold">Finished!</p>}
             <h2 className="text-center font-mono leading-none font-medium text-4xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
               {timerString}
             </h2>
