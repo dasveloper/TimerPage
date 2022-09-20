@@ -1,3 +1,5 @@
+const ntw = require('number-to-words')
+
 const format = value => String(value).padStart(2, '0')
 const converters = {
   days: value => value * 864e5,
@@ -11,13 +13,23 @@ export const getTimerString = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }
     Math.max(0, seconds),
   )}`
 
-export const getReadableString = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }) => {
+export const getReadableString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'timer' }) => {
   let str = ''
   if (days > 0) str += `${days} day `
   if (hours > 0) str += `${hours} hour `
   if (minutes > 0) str += `${minutes} minute `
-  if (seconds > 0) str += `${seconds} second `
-  str += 'timer'
+  if (seconds > 0) str += `${seconds} second`
+  str += ` ${suffix}`
+  return str
+}
+
+export const getNumberWordString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'timer' }) => {
+  let str = ''
+  if (days > 0) str += `${ntw.toWords(days)} day `
+  if (hours > 0) str += `${ntw.toWords(hours)} hour `
+  if (minutes > 0) str += `${ntw.toWords(minutes)} minute `
+  if (seconds > 0) str += `${ntw.toWords(seconds)} second`
+  str += ` ${suffix}`
   return str
 }
 

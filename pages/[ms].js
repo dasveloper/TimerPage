@@ -9,6 +9,7 @@ import Meta from '@/components/meta'
 import Share from '@/components/share'
 import {
   getHighestUnit,
+  getNumberWordString,
   getReadableString,
   getRelatedLinks,
   getRelatedString,
@@ -30,7 +31,10 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
     reset()
   }, [ms])
 
-  const readableString = getReadableString(parseMs(ms))
+  const { days, hours, minutes, seconds } = parseMs(ms)
+  const readableString = getReadableString({ days, hours, minutes, seconds })
+  const numberWordString = getNumberWordString({ days, hours, minutes, seconds, suffix: 'online countdown timer' })
+
   const timerString = useMemo(() => getTimerString(parseMs(countdown)), [countdown])
 
   return (
@@ -46,7 +50,10 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
       <main className="mt-12">
         <section>
           <div className="pb-4 border-b flex flex-col xs:flex-row items-center justify-between gap-4">
-            <h1 className="text-2xl leading-6 font-bold md:text-4xl">{readableString}</h1>
+            <div>
+              <h1 className="text-2xl leading-6 font-bold md:text-4xl">{readableString}</h1>
+              <h2 className="text-base text-gray-500">Start a {numberWordString}</h2>
+            </div>
             <Share url={`https://timerpage.com/${ms}`} title={readableString} />
           </div>
           <div className="py-28">
@@ -84,8 +91,14 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
               Reset
             </button>
           </div>
+          <div className="mt-14">
+            <p className="text-sm text-center max-w-2xl mx-auto text-gray-500">
+              Press start to begin a <b>{readableString}</b>. You can pause the countdown timer at any time by clicking
+              pause. You can reset the {readableString} by clicking on the reset button.
+            </p>
+          </div>
         </section>
-        <aside className="mt-24">
+        <aside className="mt-14">
           <div className="pb-4 border-b">
             <h2 className="text-lg leading-6 font-medium">Other {relatedString} timers</h2>
           </div>
