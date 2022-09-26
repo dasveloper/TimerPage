@@ -10,6 +10,7 @@ import Share from '@/components/share'
 import {
   getHighestUnit,
   getNumberWordString,
+  getPluralizedString,
   getReadableString,
   getRelatedLinks,
   getRelatedString,
@@ -34,6 +35,7 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
   const { days, hours, minutes, seconds } = parseMs(ms)
   const readableString = getReadableString({ days, hours, minutes, seconds })
   const numberWordString = getNumberWordString({ days, hours, minutes, seconds, suffix: 'online countdown timer' })
+  const readableStringSimple = getPluralizedString({ days, hours, minutes, seconds, suffix: '' })
 
   const timerString = useMemo(() => getTimerString(parseMs(countdown)), [countdown])
 
@@ -52,16 +54,18 @@ export default function Timer({ ms, relatedLinks, relatedString }) {
           <div className="pb-4 border-b flex flex-col xs:flex-row items-center justify-between gap-4">
             <div>
               <h1 className="text-2xl leading-6 font-bold md:text-4xl">{readableString}</h1>
-              <h2 className="text-base text-gray-500">Start a {numberWordString}</h2>
+              <h2 className="text-base text-gray-500">
+                Set timer for {readableStringSimple} using this {numberWordString}
+              </h2>
             </div>
             <Share url={`https://timerpage.com/${ms}`} title={readableString} />
           </div>
           <div className="py-28">
             {' '}
             {countdown === 0 && <p className="text-center text-3xl mb-6 font-bold">Finished!</p>}
-            <h2 className="text-center font-mono leading-none font-medium text-4xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
+            <h3 className="text-center font-mono leading-none font-medium text-4xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl">
               {timerString}
-            </h2>
+            </h3>
           </div>
           <div className="flex flex-col xs:flex-row items-center justify-center gap-4">
             <button

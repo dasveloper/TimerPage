@@ -22,6 +22,15 @@ export const getReadableString = ({ days = 0, hours = 0, minutes = 0, seconds = 
   str += ` ${suffix}`
   return str
 }
+export const getPluralizedString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'timer' }) => {
+  let str = ''
+  if (days > 0) str += `${days} ${days === 1 ? 'day' : 'days'} `
+  if (hours > 0) str += `${hours} ${hours === 1 ? 'hour' : 'hours'} `
+  if (minutes > 0) str += `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} `
+  if (seconds > 0) str += `${seconds} ${seconds === 1 ? 'second' : 'seconds'}`
+  str += ` ${suffix}`
+  return str
+}
 
 export const getNumberWordString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'timer' }) => {
   let str = ''
