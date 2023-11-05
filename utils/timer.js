@@ -13,21 +13,21 @@ export const getTimerString = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }
     Math.max(0, seconds),
   )}`
 
-export const getReadableString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'timer' }) => {
+export const getReadableString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'Timer' }) => {
   let str = ''
-  if (days > 0) str += `${days} day `
-  if (hours > 0) str += `${hours} hour `
-  if (minutes > 0) str += `${minutes} minute `
-  if (seconds > 0) str += `${seconds} second`
+  if (days > 0) str += `${days} Day `
+  if (hours > 0) str += `${hours} Hour `
+  if (minutes > 0) str += `${minutes} Minute `
+  if (seconds > 0) str += `${seconds} Second`
   str += ` ${suffix}`
   return str
 }
-export const getPluralizedString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'timer' }) => {
+export const getPluralizedString = ({ days = 0, hours = 0, minutes = 0, seconds = 0, suffix = 'Timer' }) => {
   let str = ''
-  if (days > 0) str += `${days} ${days === 1 ? 'day' : 'days'} `
-  if (hours > 0) str += `${hours} ${hours === 1 ? 'hour' : 'hours'} `
-  if (minutes > 0) str += `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} `
-  if (seconds > 0) str += `${seconds} ${seconds === 1 ? 'second' : 'seconds'}`
+  if (days > 0) str += `${days} ${days === 1 ? 'Day' : 'Days'} `
+  if (hours > 0) str += `${hours} ${hours === 1 ? 'Hour' : 'Hours'} `
+  if (minutes > 0) str += `${minutes} ${minutes === 1 ? 'Minute' : 'Minutes'} `
+  if (seconds > 0) str += `${seconds} ${seconds === 1 ? 'Second' : 'Seconds'}`
   str += ` ${suffix}`
   return str
 }
@@ -68,13 +68,13 @@ export const parseMs = ms => ({
 
 export const getRelatedString = (unit, modifier) => {
   if (unit === 'minutes') {
-    return `${modifier} minute`
+    return `${modifier} Minute`
   }
   if (unit === 'hours') {
-    return `${modifier} hour`
+    return `${modifier} Hour`
   }
   if (unit === 'days') {
-    return `${modifier} day`
+    return `${modifier} Day`
   }
   return ''
 }
